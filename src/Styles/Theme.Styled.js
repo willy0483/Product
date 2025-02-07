@@ -15,9 +15,9 @@ export const theme = {
     mobile: {
       primary: {
         rows: "1fr 9fr 1fr",
-        columns: "5fr 1fr",
+        columns: "1fr",
         areas: `
-                "header navbar"
+                "header header"
                 "main main"
                 "footer footer"
             `,
@@ -25,10 +25,11 @@ export const theme = {
     },
     tablet: {
       primary: {
-        rows: "1fr 10fr 1fr",
+        rows: "1fr 1fr 10fr 1fr",
         columns: "repeat(6,1fr)",
         areas: `
-                "header header navbar navbar navbar navbar"
+                "header header header header header header"
+                "navbar navbar navbar navbar navbar navbar"
                 "main main main main main main"
                 "footer footer footer footer footer footer"
             `,

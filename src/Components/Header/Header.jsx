@@ -1,14 +1,14 @@
+import React from "react";
 import { HeaderStyled } from "./Header.Styled";
-import { Link } from "react-router-dom";
+import logo from "../../Assets/logo.png";
 
-import logo from "../../assets/logo.png";
-
-export const Header = () => {
+export const Header = ({ toggleMenu, isOpen }) => {
   return (
     <HeaderStyled>
-      <Link to={"/"}>
-        <img src={logo} alt="logo" />
-      </Link>
+      <img src={logo} alt="Logo" className="logo" />
+      <div className="burger-menu" onClick={toggleMenu}>
+        {isOpen ? "✕" : "☰"}
+      </div>
     </HeaderStyled>
   );
 };

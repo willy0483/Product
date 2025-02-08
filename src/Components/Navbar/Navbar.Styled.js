@@ -5,18 +5,21 @@ export const NavbarStyled = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: ${(props) => props.theme.color.background};
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .burger-menu {
     display: block;
     font-size: 1.5rem;
     cursor: pointer;
   }
+
   ul {
     display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    background-color: #444;
+    background-color: ${(props) => props.theme.color.background};
     margin-top: 1rem;
     list-style: none;
     margin: 0;
@@ -26,27 +29,42 @@ export const NavbarStyled = styled.nav`
     left: 0;
     right: 0;
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
+
+    @media screen and (max-width: ${(props) => props.theme.grid.breakpoints.s}) {
+      padding: 0.5rem 1rem;
+      li {
+        background-color: rgb(50, 50, 50);
+        padding: 1rem;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: rgb(70, 70, 70);
+        }
+      }
+    }
 
     li {
       display: flex;
       margin: 0.5rem 0;
-      text-align: center;
-      align-items: center;
+      transition: transform 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
 
     a {
       color: white;
       text-decoration: none;
       font-size: 1rem;
+      width: 100%;
       transition: color 0.3s ease;
-
-      &:hover {
-        color: ${(props) => props.theme.color.primary};
-      }
-
+      padding: 0.5rem 1rem;  
       &.active {
-        font-weight: 600;
+        text-shadow: 0 0 1px ${(props) => props.theme.color.primary};
+        border-bottom: 2px solid  ${(props) => props.theme.color.primary};
+        border-radius: 10px;
       }
     }
   }
@@ -54,7 +72,6 @@ export const NavbarStyled = styled.nav`
   @media screen and (min-width: ${(props) => props.theme.grid.breakpoints.s}) {
     flex-direction: row;
     align-items: center;
-
 
     .burger-menu {
       display: none;
@@ -74,12 +91,4 @@ export const NavbarStyled = styled.nav`
       }
     }
   }
-
-
-  @media screen and (min-width: ${(props) => props.theme.grid.breakpoints.s}) {
-    background-color: ${(props) => props.theme.color.background};
-  }
-
-
-
 `;

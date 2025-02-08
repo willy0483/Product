@@ -2,6 +2,7 @@ export const theme = {
   color: {
     white: "#fff9ef",
     background: "#242424",
+    primary: "#b3c3b8",
   },
   fonts: ["Oswald", "Open Sans"],
   grid: {
